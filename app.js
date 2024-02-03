@@ -1,5 +1,5 @@
 let contador = 0 //para controle do botão reiniciar
-let erro = document.querySelector('h2')
+let erro = document.querySelector('h2') // Editor da mensagem de erro
 
 
 function sortear() { 
@@ -10,6 +10,7 @@ function sortear() {
     let sorteados = [];
     let numeros;
 
+    // controle de possiveis erros.
     if (quantidades > ate - de) {
         erro.innerHTML = "Invalido, a quantidade não condiz com o intervalo dos números"
         if (contador == 0) {alterarReiniciar()}
@@ -29,7 +30,10 @@ function sortear() {
         
         let resultado = document.getElementById('resultado')
         resultado.innerHTML = (`  <label class="texto__paragrafo">Números sorteados:  ${sorteados}</label>`)
+    // isso controla a ocilação do botão ao precionar o "Sortear()"
     if (contador == 0) {alterarReiniciar()}
+
+    // almento o contador para bloquear o "alternarReiniciar"
     contador++
     }
 }
@@ -58,6 +62,7 @@ function reiniciar() {
     document.getElementById('de').value = ''
     document.getElementById('ate').value =''
     document.getElementById('resultado').innerHTML = '<label class="texto__paragrafo">Números sorteados:  nenhum até agora</label>'
+    // aqui mais uma vez tem o controle do "alternarReiniciar"
     if (contador != 0) {alterarReiniciar()}
     contador = 0
     erro.innerHTML = ""
